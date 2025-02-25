@@ -11,11 +11,11 @@ I am committing to a **70-day challenge** to learn and improve in **smart contra
 - Document progress to ensure consistency and learning.
 
 ## Progress Log 📅
-| Day | Date       | Activity                        | Key Learnings            |
-| --- | ---------- | ------------------------------- | ------------------------ |
-| 1   | YYYY-MM-DD | Description of what I worked on | Summary of key takeaways |
-| 2   | YYYY-MM-DD |                                 |                          |
-| 3   | YYYY-MM-DD |                                 |                          |
+| Day | Date       | Activity                                                                                                                                                                 | Key Learnings      |
+| --- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| 1   | 2025-02-24 | Today i solve one or two ethernuat challenges ,3hrs part of security course complete(0-3), learn foundry functionalities,refer some solidity docs,fuzzing and invariants | focusses on basics |
+| 2   | YYYY-MM-DD |                                                                                                                                                                          |                    |
+| 3   | YYYY-MM-DD |                                                                                                                                                                          |                    |
 
 _(This table will be updated daily)_
 
