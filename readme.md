@@ -11,11 +11,11 @@ I am committing to a **70-day challenge** to learn and improve in **smart contra
 - Document progress to ensure consistency and learning.
 
 ## Progress Log 📅
-| Day | Date       | Activity                                                                                                                                                                 | Key Learnings      |
-| --- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| 1   | 2025-02-24 | Today i solve one or two ethernuat challenges ,3hrs part of security course complete(0-3), learn foundry functionalities,refer some solidity docs,fuzzing and invariants | focusses on basics |
-| 2   | YYYY-MM-DD |                                                                                                                                                                          |                    |
-| 3   | YYYY-MM-DD |                                                                                                                                                                          |                    |
+| Day | Date       | Activity                                                                                                                                                                 | Key Learnings                                                         |
+| --- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| 1   | 2025-02-24 | Today i solve one or two ethernuat challenges ,3hrs part of security course complete(0-3), learn foundry functionalities,refer some solidity docs,fuzzing and invariants | focusses on basics                                                    |
+| 2   | 2025-02-25 | Today i complete the passwordAudit and revise the basics  of solidity ,foundry tools also revise .Its good to do that revise all the basics                              | focussed some basics and vulnerabilities finding                      |
+| 3   | 2025-02-26 | Today i complete the ethernaut CTF challenge MagicAnimal and also do some attacks learn and how to solve them and also little bit ECDSA algorithm understanding          | Understanding solidity internal structure while solving CTF challenge |
 
 _(This table will be updated daily)_
 
