@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
+pragma solidity 0.8.0;
 import {Test, console} from "forge-std/Test.sol";
 
 import {MagicAnimalCarousel} from "../src/level33/MagicAnimal.sol";
