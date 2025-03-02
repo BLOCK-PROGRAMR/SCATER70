@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
-import {Test, console} from "forge-std/Test.sol";
+pragma solidity ^0.8.20;
+// import {Test, console} from "forge-std/Test.sol";
+import "../lib/forge-std/src/Test.sol";
+import "../lib/forge-std/src/console.sol";
 
 import {MagicAnimalCarousel} from "../src/level33/MagicAnimal.sol";
 
@@ -24,7 +26,10 @@ contract MagicAnimalCarouselTest is Test {
         uint256 animalInCrate1 = (crate1Data & animalMask) >> 176; //here also 256-176=80
 
         // Correct encoding of "Dog" (matches contract logic)
-        uint256 encodedDog = uint256(bytes32(abi.encodePacked("Dog"))) >> 176; //256-176=80
+        // uint256 encodedDog = uint256(
+        //     keccak256(bytes32(abi.encodePacked("Dog")))
+        // ) >> 176; //256-176=80
+        uint256 encodedDog = uint256(keccak256(abi.encodePacked("Dog"))) >> 176;
 
         // Assert that the animal in crate 1 matches the encoded "Dog"
         assertEq(animalInCrate1, encodedDog, "Crate 1 should contain 'Dog'");
@@ -47,9 +52,13 @@ contract MagicAnimalCarouselTest is Test {
         // Verify that "Parrot" is in crate 65535
         uint256 crate65535Data = carousel.carousel(65535);
         uint256 animalInCrate65535 = (crate65535Data & animalMask) >> 176;
+        // uint256 encodedParrot = uint256(
+        //     bytes32(abi.encodePacked("Parrot")) >> 176
+        // );
         uint256 encodedParrot = uint256(
-            bytes32(abi.encodePacked("Parrot")) >> 176
-        );
+            keccak256(abi.encodePacked("Parrot"))
+        ) >> 176;
+
         assertEq(
             animalInCrate65535,
             encodedParrot,

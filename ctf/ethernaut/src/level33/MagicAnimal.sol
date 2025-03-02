@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
+pragma solidity ^0.8.20;
 
 contract MagicAnimalCarousel {
     uint16 public constant MAX_CAPACITY = type(uint16).max;
@@ -57,7 +57,7 @@ contract MagicAnimalCarousel {
         string calldata animalName
     ) public pure returns (uint256) {
         require(bytes(animalName).length <= 12, "Animal name too long");
-        return uint256(bytes32(abi.encodePacked(animalName)) >> 160);
+        return uint256(keccak256(abi.encodePacked(animalName)) >> 160);
     }
 }
 // The Magic Rule
