@@ -30,8 +30,8 @@ _(This table will be updated daily)_
 - Other relevant resources...
 
 ## Challenges Faced & Solutions 🛠️
-- **Issue**: Description of a problem faced
-  - **Solution**: How I resolved it
+- **Issue**: How can I find bugs in smart contracts?
+  - **Solution**: By auditing various contracts every day.
 
 ## How to Follow My Progress
 Check my daily commits on **GitHub**: [https://github.com/BLOCK-PROGRAMR](https://github.com/BLOCK-PROGRAMR)
