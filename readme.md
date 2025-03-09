@@ -21,6 +21,7 @@ I am committing to a **70-day challenge** to enhance my skills in **smart contra
 | 5   | 2025-03-01 | Learned the basics of **fuzzing**, participated in two Ethernaut challenges, and deepened my understanding of **ECDSA mechanisms**.                                               | Focused on security tools for smart contract analysis.         |
 | 6   | 2025-03-02 | I solve the Impersnator challenge in the ethernaut ctf,I was written many test to find the vulnerability and also i learn ecdsa signatures working mechanism                      | focussed on Impersantor challenge                              |
 | 7   | 2025-03-06 | I learn fuzzing by solving some examples and i solve the ethernaut challenges                                                                                                     | i focussed on finding the bugs                                 |
+| 8   | 2025-03-09 | I solve some ctf challenges                                                                                                                                                       | foussing vulnerabilities                                       |
 
 _(This table will be updated daily)_
 
