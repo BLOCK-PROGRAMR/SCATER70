@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import "../lib/forge-std/src/Test.sol";
 import "../lib/forge-std/src/console.sol";
-import "../src/Impersnator.sol";
+import "../src/impersanator.sol";
 
 contract ECLockerTest is Test {
     Impersonator public impersonator;
@@ -81,9 +81,9 @@ contract ECLockerTest is Test {
 
     function generateValidSignature(
         uint256 _lockId
-    ) internal view returns (uint8, bytes32, bytes32) {
+    ) internal pure returns (uint8, bytes32, bytes32) {
         bytes32 hash = keccak256(abi.encodePacked(_lockId));
-        (uint8 v, bytes32 r, bytes32 s) = vm.sign(1, hash);
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(1, hash); //using vm.sign to use this to get the data in the v,r,s
         return (v, r, s);
     }
 }
