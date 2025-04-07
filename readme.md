@@ -10,20 +10,7 @@ I am committing to a **70-day challenge** to enhance my skills in **smart contra
 - Contribute to open-source security research.
 - Maintain consistent documentation for effective learning and tracking.
 
-## Progress Log 📅
 
-| Day | Date       | Activity                                                                                                                                                                          | Key Learnings                                                  |
-| --- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| 1   | 2025-02-24 | Solved one or two Ethernaut challenges, completed 3 hours of a security course (0-3), learned Foundry functionalities, referred to Solidity docs, studied fuzzing and invariants. | Focused on fundamentals.                                       |
-| 2   | 2025-02-25 | Completed the PasswordAudit, revised Solidity basics, reviewed Foundry tools, and reinforced fundamental auditing techniques.                                                     | Strengthened basics and vulnerability detection skills.        |
-| 3   | 2025-02-26 | Completed the Ethernaut CTF challenge *MagicAnimal*, performed various attack simulations, and gained a better understanding of the ECDSA algorithm.                              | Explored Solidity's internal structure through CTF challenges. |
-| 4   | 2025-02-28 | Audited the *puppyRaffle* contract, identified **reentrancy, arithmetic overflow, and DoS attacks**, and enhanced my auditing process.                                            | Gaining confidence in contract auditing and daily progress.    |
-| 5   | 2025-03-01 | Learned the basics of **fuzzing**, participated in two Ethernaut challenges, and deepened my understanding of **ECDSA mechanisms**.                                               | Focused on security tools for smart contract analysis.         |
-| 6   | 2025-03-02 | I solve the Impersnator challenge in the ethernaut ctf,I was written many test to find the vulnerability and also i learn ecdsa signatures working mechanism                      | focussed on Impersantor challenge                              |
-| 7   | 2025-03-06 | I learn fuzzing by solving some examples and i solve the ethernaut challenges                                                                                                     | i focussed on finding the bugs                                 |
-| 8   | 2025-03-09 | I solve some ctf challenges                                                                                                                                                       | foussing vulnerabilities                                       |
-
-_(This table will be updated daily)_
 
 ## Resources Used 📚
 - [Ethernaut Challenges](https://ethernaut.openzeppelin.com/)
