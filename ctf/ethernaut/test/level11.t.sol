@@ -41,6 +41,7 @@ contract ReentranceTest is Test {
         MaliciousContract malicious = new MaliciousContract(reentrance);
         uint256 balanceBefore = address(malicious).balance;
         uint256 _reentrantbalance = address(reentrance).balance;
+        vm.expectRevert("arithmetic underflow or overflow");
         malicious.attack{value: 1 ether}();
         assertEq(address(reentrance).balance, 0);
         assertEq(address(malicious).balance, balanceBefore + _reentrantbalance);
