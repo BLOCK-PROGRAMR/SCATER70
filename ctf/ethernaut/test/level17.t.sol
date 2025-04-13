@@ -27,6 +27,9 @@ contract PreservationTest is Test {
             uint160(address(attackLibrary)),
             uint160(preservation.timeZone1Library())
         );
+        preservation.setFirstTime(uint160(attacker));
+        assertEq(preservation.owner(), attacker);
+
         vm.stopPrank();
     }
 }
