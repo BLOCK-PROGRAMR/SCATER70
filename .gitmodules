@@ -13,3 +13,6 @@
 [submodule "tools/lib/forge-std"]
 	path = tools/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "ctf/damnvulnerable/lib/forge-std"]
+	path = ctf/damnvulnerable/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
