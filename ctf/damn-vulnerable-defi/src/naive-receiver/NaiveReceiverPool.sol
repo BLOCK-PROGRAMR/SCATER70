@@ -10,7 +10,8 @@ import {WETH} from "solmate/tokens/WETH.sol";
 
 contract NaiveReceiverPool is Multicall, IERC3156FlashLender {
     uint256 private constant FIXED_FEE = 1e18; // not the cheapest flash loan
-    bytes32 private constant CALLBACK_SUCCESS = keccak256("ERC3156FlashBorrower.onFlashLoan");
+    bytes32 private constant CALLBACK_SUCCESS =
+        keccak256("ERC3156FlashBorrower.onFlashLoan");
 
     WETH public immutable weth;
     address public immutable trustedForwarder;
@@ -23,34 +24,50 @@ contract NaiveReceiverPool is Multicall, IERC3156FlashLender {
     error UnsupportedCurrency();
     error CallbackFailed();
 
-    constructor(address _trustedForwarder, address payable _weth, address _feeReceiver) payable {
+    constructor(
+        address _trustedForwarder,
+        address payable _weth,
+        address _feeReceiver
+    ) payable {
         weth = WETH(_weth);
         trustedForwarder = _trustedForwarder;
         feeReceiver = _feeReceiver;
         _deposit(msg.value);
     }
 
+    //c
     function maxFlashLoan(address token) external view returns (uint256) {
         if (token == address(weth)) return weth.balanceOf(address(this));
         return 0;
     }
 
+    //c
     function flashFee(address token, uint256) external view returns (uint256) {
         if (token != address(weth)) revert UnsupportedCurrency();
         return FIXED_FEE;
     }
 
-    function flashLoan(IERC3156FlashBorrower receiver, address token, uint256 amount, bytes calldata data)
-        external
-        returns (bool)
-    {
+    function flashLoan(
+        IERC3156FlashBorrower receiver,
+        address token,
+        uint256 amount,
+        bytes calldata data
+    ) external returns (bool) {
         if (token != address(weth)) revert UnsupportedCurrency();
 
         // Transfer WETH and handle control to receiver
         weth.transfer(address(receiver), amount);
         totalDeposits -= amount;
 
-        if (receiver.onFlashLoan(msg.sender, address(weth), amount, FIXED_FEE, data) != CALLBACK_SUCCESS) {
+        if (
+            receiver.onFlashLoan(
+                msg.sender,
+                address(weth),
+                amount,
+                FIXED_FEE,
+                data
+            ) != CALLBACK_SUCCESS
+        ) {
             revert CallbackFailed();
         }
 
@@ -63,6 +80,7 @@ contract NaiveReceiverPool is Multicall, IERC3156FlashLender {
         return true;
     }
 
+    //@audit using meta trasaction to bypass the access and withdraw the funds
     function withdraw(uint256 amount, address payable receiver) external {
         // Reduce deposits
         deposits[_msgSender()] -= amount;
@@ -72,10 +90,12 @@ contract NaiveReceiverPool is Multicall, IERC3156FlashLender {
         weth.transfer(receiver, amount);
     }
 
+    //c
     function deposit() external payable {
         _deposit(msg.value);
     }
 
+    //c
     function _deposit(uint256 amount) private {
         weth.deposit{value: amount}();
 
@@ -85,7 +105,7 @@ contract NaiveReceiverPool is Multicall, IERC3156FlashLender {
 
     function _msgSender() internal view override returns (address) {
         if (msg.sender == trustedForwarder && msg.data.length >= 20) {
-            return address(bytes20(msg.data[msg.data.length - 20:]));
+            return address(bytes20(msg.data[msg.data.length - 20:])); //last 20 bytes of msg.data ,if u send the msg.data contain last 20 bytes address
         } else {
             return super._msgSender();
         }
