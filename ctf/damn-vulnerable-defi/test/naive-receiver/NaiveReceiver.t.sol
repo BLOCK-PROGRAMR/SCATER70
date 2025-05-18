@@ -85,6 +85,7 @@ contract NaiveReceiverChallenge is Test {
         bytes[] memory callDatas = new bytes[](11);
 
         // Encode flash loan calls
+        //Why ? because in the challenge funds in pool and receiver amount transfer to the recovery account,example nithin have  10 ether so we call flashLoan function 10 times for every calling loan charge 1 ether,
         for (uint i = 0; i < 10; i++) {
             callDatas[i] = abi.encodeCall(
                 NaiveReceiverPool.flashLoan,

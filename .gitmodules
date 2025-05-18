@@ -19,3 +19,6 @@
 [submodule "MultisigWallet/lib/forge-std"]
 	path = MultisigWallet/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "ByBit/lib/forge-std"]
+	path = ByBit/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
