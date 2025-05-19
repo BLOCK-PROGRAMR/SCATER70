@@ -22,3 +22,6 @@
 [submodule "ByBit/lib/forge-std"]
 	path = ByBit/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "MultisigWallet"]
+	path = MultisigWallet
+	url = https://github.com/BLOCK-PROGRAMR/MultisigWallet.git
