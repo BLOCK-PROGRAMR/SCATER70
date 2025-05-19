@@ -7,21 +7,9 @@
 [submodule "course/Basics/lib/openzeppelin-contracts"]
 	path = course/Basics/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
-[submodule "ctf/ethernaut/lib/forge-std"]
-	path = ctf/ethernaut/lib/forge-std
-	url = https://github.com/foundry-rs/forge-std
-[submodule "tools/lib/forge-std"]
-	path = tools/lib/forge-std
-	url = https://github.com/foundry-rs/forge-std
 [submodule "ctf/damnvulnerable/lib/forge-std"]
 	path = ctf/damnvulnerable/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
 [submodule "MultisigWallet/lib/forge-std"]
 	path = MultisigWallet/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
-[submodule "ByBit/lib/forge-std"]
-	path = ByBit/lib/forge-std
-	url = https://github.com/foundry-rs/forge-std
-[submodule "MultisigWallet"]
-	path = MultisigWallet
-	url = https://github.com/BLOCK-PROGRAMR/MultisigWallet.git
